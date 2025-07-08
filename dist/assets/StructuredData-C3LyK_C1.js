@@ -1,0 +1,1 @@
+import{H as i}from"./index-u1RufcY2.js";import{j as r}from"./framer-motion-B8i_ZKLU.js";const s=({data:s})=>r.jsx(i,{children:r.jsx("script",{type:"application/ld+json",children:JSON.stringify(s)})});export{s as S};
