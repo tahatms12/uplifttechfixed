@@ -1,13 +1,15 @@
 [[headers]]
-  for = "/*"
-  [headers.values]
-    Content-Security-Policy = "default-src 'self'; script-src 'self' https://www.googletagmanager.com https://www.google-analytics.com 'unsafe-inline'; frame-src 'self' https://bookings.zoho.com; img-src 'self' data: blob:; connect-src 'self' https://bookings.zoho.com https://www.google-analytics.com; upgrade-insecure-requests;"
-    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
-    Referrer-Policy = "strict-origin-when-cross-origin"
-    Strict-Transport-Security = "max-age=63072000; includeSubDomains; preload"
-    X-Content-Type-Options = "nosniff"
-    X-Frame-Options = "DENY"
-    X-XSS-Protection = "1; mode=block"
+for = "/*"
+[headers.values]
+Content-Security-Policy = """
+  default-src 'self';
+  script-src 'self' https://www.googletagmanager.com;
+  connect-src 'self' https://www.google-analytics.com;
+  img-src 'self' data:;
+  style-src 'self';
+  frame-src https://www.googletagmanager.com;
+  worker-src 'self';
+"""
 
 [[headers]]
   for = "/*.html"

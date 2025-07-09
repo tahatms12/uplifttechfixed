@@ -7,15 +7,11 @@ import './styles/prose.css';
 
 // Register service worker
 if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/service-worker.js', {
-      scope: '/',
-    }).then(registration => {
-      console.log('SW registered:', registration);
-    }).catch(error => {
-      console.log('SW registration failed:', error);
+  navigator.serviceWorker.register('/sw.js', { type: 'module' })
+    .then(reg => {
+      reg.navigationPreload.enable();
+      reg.update();
     });
-  });
 }
 
 createRoot(document.getElementById('root')!).render(
