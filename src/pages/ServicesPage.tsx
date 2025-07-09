@@ -36,10 +36,11 @@ const ServiceCard: React.FC<ServiceProps> = ({
       
       <div className="relative h-48 w-full rounded-lg overflow-hidden my-4">
         <img 
+          loading="lazy"
           src={imageSrc}
           alt={title}
           className="w-full h-full object-cover"
-        />
+          decoding="async"
       </div>
       
       <ul className="space-y-2 mb-6">
@@ -80,7 +81,7 @@ const ServicesPage: React.FC = () => {
         "CRM management and reporting",
         "Sales process optimization"
       ],
-      imageSrc: "https://cplyjoeqd4.ufs.sh/f/gAmqiT9pUNhrOwsfWsPtf5tLxrJBKGIUXpzSWP3AO9Qwhg1N",
+      imageSrc: "/images/gAmqiT9pUNhrOwsfWsPtf5tLxrJBKGIUXpzSWP3AO9Qwhg1N",
   path: "/contact"
     },
     {
@@ -93,7 +94,7 @@ const ServicesPage: React.FC = () => {
         "Shipping and distribution coordination",
         "Supply chain optimization"
       ],
-      imageSrc: "https://cplyjoeqd4.ufs.sh/f/gAmqiT9pUNhr7Adl4MJoqhwKnVTQZaEAGCsP4eUcDWl2dOm1",
+      imageSrc: "/images/gAmqiT9pUNhr7Adl4MJoqhwKnVTQZaEAGCsP4eUcDWl2dOm1",
       path: "/services/logistics"
     },
     {
@@ -106,7 +107,7 @@ const ServicesPage: React.FC = () => {
         "HIPAA/GDPR compliant processes",
         "Detailed reporting and analytics"
       ],
-      imageSrc: "https://cplyjoeqd4.ufs.sh/f/gAmqiT9pUNhrkd1LlTf7QUG3gos5DHvRIOeTxSVCiYqEJwZA",
+      imageSrc: "/images/gAmqiT9pUNhrkd1LlTf7QUG3gos5DHvRIOeTxSVCiYqEJwZA",
       path: "/services/collections"
     },
     {
@@ -119,7 +120,7 @@ const ServicesPage: React.FC = () => {
         "Social media management",
         "Performance tracking and optimization"
       ],
-      imageSrc: "https://cplyjoeqd4.ufs.sh/f/gAmqiT9pUNhriqLUaVAGx5GHot7PpSj1Nqiscbey38YkwXh2",
+      imageSrc: "/images/gAmqiT9pUNhriqLUaVAGx5GHot7PpSj1Nqiscbey38YkwXh2",
       path: "/services/marketing"
     },
     {
@@ -132,7 +133,7 @@ const ServicesPage: React.FC = () => {
         "Call routing and message taking",
         "Virtual office administration"
       ],
-      imageSrc: "https://cplyjoeqd4.ufs.sh/f/gAmqiT9pUNhrffylYS3u4vE1XnCFZWHLb5YdoJeqV2ijy6fI",
+      imageSrc: "/images/gAmqiT9pUNhrffylYS3u4vE1XnCFZWHLb5YdoJeqV2ijy6fI",
       path: "/services/front-desk"
     }
   ];
@@ -226,6 +227,8 @@ const ServicesPage: React.FC = () => {
                   src="https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
                   alt="UPLIFT team in action" 
                   className="w-full h-full object-cover"
+                  decoding="async"
+                  fetchpriority="high"
                 />
               </div>
               <div className="absolute -bottom-6 -right-6 bg-rich-black p-6 rounded-xl border border-neutral-800 max-w-xs">

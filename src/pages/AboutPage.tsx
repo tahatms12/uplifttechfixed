@@ -36,19 +36,19 @@ const AboutPage: React.FC = () => {
       name: 'Taha Syed',
       position: 'Founder & CEO',
       description: 'Visionary leader with years of experience in software development, supply chain management, data management, compliance implementation and software implementation.',
-      image: 'https://cplyjoeqd4.ufs.sh/f/gAmqiT9pUNhr1W4jrtKKpXVWvs9SzonqPt04iFJaeUgRD85u'
+      image: '/images/gAmqiT9pUNhr1W4jrtKKpXVWvs9SzonqPt04iFJaeUgRD85u'
     },
     {
       name: 'Zoe Turner',
       position: 'Operations Manager',
       description: 'Brings meticulous teaching capabilities and ensures everything is working according to plan, maintaining high operational standards.',
-      image: 'https://cplyjoeqd4.ufs.sh/f/gAmqiT9pUNhrYEgoyjVvGagiQPkZIS78eT2lbXDK1sjz5c3t'
+      image: '/images/gAmqiT9pUNhrYEgoyjVvGagiQPkZIS78eT2lbXDK1sjz5c3t'
     },
     {
       name: 'Shahnawaz Arif',
       position: 'CMO',
       description: 'Years of experience in creating brand strategies, working with household brand names to enhance their market presence and recognition.',
-      image: 'https://cplyjoeqd4.ufs.sh/f/gAmqiT9pUNhrXoeIcaqcIpZMfK5wFztkhqWygG7oCTbeinJD'
+      image: '/images/gAmqiT9pUNhrXoeIcaqcIpZMfK5wFztkhqWygG7oCTbeinJD'
     }
   ];
 
@@ -59,7 +59,7 @@ const AboutPage: React.FC = () => {
         <div
           className="absolute inset-0 z-0"
           style={{
-            backgroundImage: `url('https://24vzlu2kzs.ufs.sh/f/4JlBnp1v6U48LYcCDZiUMZzX7lfxvW3hEk5JKuRtbm1dNVHP')`,
+            backgroundImage: `url('/images/4JlBnp1v6U48LYcCDZiUMZzX7lfxvW3hEk5JKuRtbm1dNVHP')`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             opacity: 0.4
@@ -104,6 +104,7 @@ const AboutPage: React.FC = () => {
                 alt="UPLIFT team collaboration" 
                 className="w-full h-full object-cover"
                 loading="lazy"
+                decoding="async"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-rich-black/70 to-transparent"></div>
             </div>
@@ -148,6 +149,7 @@ const AboutPage: React.FC = () => {
                   alt={member.name} 
                   className="w-full h-full object-cover"
                   loading="lazy"
+                  decoding="async"
                 />
               </div>
               <h3 className="text-xl sm:text-2xl font-medium mb-1 sm:mb-2">{member.name}</h3>
