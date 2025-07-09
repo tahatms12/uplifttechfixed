@@ -5,6 +5,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities;
+
 /* Mobile-first base styles */
 @layer base {
   html {
