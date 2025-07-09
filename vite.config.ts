@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { VitePWA } from 'vite-plugin-pwa';
+import viteCompression from 'vite-plugin-compression';
 import { visualizer } from 'rollup-plugin-visualizer';
 import path from 'path';
 
@@ -64,25 +65,19 @@ export default defineConfig({
               },
             },
           },
-          {
-            urlPattern: /^https:\/\/cplyjoeqd4\.ufs\.sh\/.*/i,
-            handler: 'CacheFirst',
-            options: {
-              cacheName: 'ufs-images',
-              expiration: {
-                maxEntries: 50,
-                maxAgeSeconds: 60 * 60 * 24 * 30, // 30 days
-              },
-              cacheableResponse: {
-                statuses: [0, 200],
-              },
-            },
-          },
         ],
       },
       devOptions: {
         enabled: true,
       },
+    }),
+    viteCompression({
+      algorithm: 'brotli',
+      threshold: 1024
+    }),
+    viteCompression({
+      algorithm: 'gzip',
+      threshold: 1024
     }),
     
     process.env.ANALYZE && visualizer({
@@ -97,7 +92,8 @@ export default defineConfig({
     }
   },
   build: {
-    target: 'es2022',
+    target: 'es2018',
+    assetsInlineLimit: 0,
     minify: 'terser',
     cssMinify: 'lightningcss',
     modulePreload: {
