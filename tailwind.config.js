@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
+  darkMode: 'class',
   theme: {
     extend: {
       colors: {
@@ -34,12 +35,37 @@ export default {
           700: '#374151',
           800: '#1F2937',
           900: '#111827',
-        }
+        },
+        violet: {
+          50: '#F5F3FF',
+          100: '#EDE9FE',
+          200: '#DDD6FE',
+          300: '#C4B5FD',
+          400: '#A78BFA',
+          500: '#8B5CF6',
+          600: '#7C3AED',
+          700: '#6D28D9',
+          800: '#5B21B6',
+          900: '#4C1D95',
+        },
+        fuchsia: {
+          50: '#FDF2F8',
+          100: '#FCE7F6',
+          200: '#FBCFE8',
+          300: '#F9A8D4',
+          400: '#F472B6',
+          500: '#EC4899',
+          600: '#DB2777',
+          700: '#BE185D',
+          800: '#9D174D',
+          900: '#701A45',
+        },
       },
       fontFamily: {
         'display': ['Orbitron', 'sans-serif'],
         'body': ['Inter', 'system-ui', 'sans-serif'],
         'poppins': ['Poppins', 'sans-serif'],
+        'inter-var': ['Inter var', { fontFeatureSettings: '"cv11", "ss01"' }],
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
@@ -58,9 +84,6 @@ export default {
   plugins: [],
   corePlugins: {
     preflight: false,
-  },
-  layers: {
-    utilities: '@tailwind utilities',
   },
   future: {
     hoverOnlyWhenSupported: true,

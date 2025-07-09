@@ -26,6 +26,7 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = ({
       <div className="relative h-40 sm:h-48 overflow-hidden">
         <img
           loading="lazy"
+          decoding="async"
           src={imageUrl}
           alt={title}
           className="w-full h-full object-cover"
@@ -67,7 +68,7 @@ const CaseStudies: React.FC = () => {
         { label: "Brand Recognition", value: "+65%" },
         { label: "Lead Generation", value: "+48%" }
       ],
-      imageUrl: "https://cplyjoeqd4.ufs.sh/f/gAmqiT9pUNhr29eCfrOIXq0JBeTNSsrEFDjm8bYxAHK13tzV"
+      imageUrl: "/images/gAmqiT9pUNhr29eCfrOIXq0JBeTNSsrEFDjm8bYxAHK13tzV"
     },
     {
       title: "Accounts Receivable Recovery",
@@ -77,7 +78,7 @@ const CaseStudies: React.FC = () => {
         { label: "First Month", value: "$25K" },
         { label: "Total Recovered", value: "$2M" }
       ],
-      imageUrl: "https://cplyjoeqd4.ufs.sh/f/gAmqiT9pUNhr1nZS9eKKpXVWvs9SzonqPt04iFJaeUgRD85u"
+      imageUrl: "/images/gAmqiT9pUNhr1nZS9eKKpXVWvs9SzonqPt04iFJaeUgRD85u"
     },
     {
       title: "Integrated Marketing Campaign",
@@ -87,7 +88,7 @@ const CaseStudies: React.FC = () => {
         { label: "Qualified Leads", value: "+156%" },
         { label: "Social Engagement", value: "+89%" }
       ],
-      imageUrl: "https://cplyjoeqd4.ufs.sh/f/gAmqiT9pUNhr70PfYCJoqhwKnVTQZaEAGCsP4eUcDWl2dOm1"
+      imageUrl: "/images/gAmqiT9pUNhr70PfYCJoqhwKnVTQZaEAGCsP4eUcDWl2dOm1"
     }
   ];
 

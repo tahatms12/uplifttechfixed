@@ -27,7 +27,8 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ icon, title, description }) =
       
       <div className="relative h-48 w-full rounded-lg overflow-hidden my-4">
         <img 
-          loading="lazy" 
+          loading="lazy"
+          decoding="async" 
           src={imageSrc}
           alt={title}
           className="w-full h-full object-cover"

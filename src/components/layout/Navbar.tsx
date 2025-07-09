@@ -61,6 +61,8 @@ const Navbar: React.FC = () => {
         className={`fixed w-full z-50 ${
           isScrolled || isMenuOpen ? 'bg-rich-black/95 backdrop-blur-md py-2 shadow-lg' : 'bg-transparent py-3 sm:py-5'
         }`}
+          isScrolled || isMenuOpen ? 'bg-rich-black/95 backdrop-blur-md py-2 shadow-lg' : 'bg-transparent py-3 sm:py-5'
+        }`}
       >
         <div className="container-custom px-3 sm:px-4">
           <nav className="grid grid-cols-[1fr_auto_1fr] items-center gap-2 sm:gap-8">
@@ -117,7 +119,7 @@ const Navbar: React.FC = () => {
                               <Link
                                 key={service.name}
                                 to={service.path}
-                                className="block px-4 py-2 text-sm hover:bg-deep-purple/30"
+                                                                className="block px-4 py-2 text-sm hover:bg-deep-purple/30"
                               >
                                 {service.name}
                               </Link>
