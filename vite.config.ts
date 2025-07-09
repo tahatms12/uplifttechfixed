@@ -6,6 +6,7 @@ import { visualizer } from 'rollup-plugin-visualizer';
 import path from 'path';
 
 export default defineConfig({
+  base: './',
   plugins: [
     react({
       babel: {
@@ -18,6 +19,9 @@ export default defineConfig({
       strategies: 'generateSW',
       injectRegister: false,
       workbox: {
+        globDirectory: 'dist',
+        globPatterns: ['**/*.{js,wasm,css,html}'],
+        globIgnores: ['node_modules/**/*', 'sw.js', 'workbox-*.js'],
         navigationPreload: true,
         cleanupOutdatedCaches: true,
         clientsClaim: true,
@@ -30,6 +34,10 @@ export default defineConfig({
               // Remove hash from font URLs
               if (url.startsWith('/assets/poppins') && url.includes('.woff2')) {
                 url = url.replace(/-\w+\.woff2$/, '.woff2');
+              }
+              // Ensure all URLs are relative to the base
+              if (url.startsWith('/')) {
+                url = url.substring(1); // Remove leading slash
               }
               return { ...entry, url };
             });
@@ -73,11 +81,15 @@ export default defineConfig({
     }),
     viteCompression({
       algorithm: 'brotli',
-      threshold: 1024
+      threshold: 1024,
+      exclude: [/.map$/, /sw.js$/, /workbox-\w+.js$/],
+      root: 'dist'
     }),
     viteCompression({
       algorithm: 'gzip',
-      threshold: 1024
+      threshold: 1024,
+      exclude: [/.map$/, /sw.js$/, /workbox-\w+.js$/],
+      root: 'dist'
     }),
     
     process.env.ANALYZE && visualizer({
@@ -92,6 +104,7 @@ export default defineConfig({
     }
   },
   build: {
+    outDir: 'dist',
     target: 'es2018',
     assetsInlineLimit: 0,
     minify: 'terser',
