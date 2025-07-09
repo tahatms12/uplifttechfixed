@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { Users, TrendingUp, BadgeDollarSign, Megaphone, PhoneCall, ArrowRight, CheckCircle } from 'lucide-react';
 import Section from '../components/ui/Section';
@@ -71,6 +71,8 @@ const ServicesPage: React.FC = () => {
     document.title = 'Services | UPLIFT Technologies';
   }, []);
   
+  const imageSrc = useMemo(() => import.meta.env.VITE_DEFAULT_SERVICE_IMG, []);
+
   const services = [
     {
       icon: <Users size={28} />,
