@@ -1,0 +1,1 @@
+import{j as e}from"./index-BBM8KZhz.js";const r=({src:r,title:s,width:i="100%",height:o="700px",className:t="",style:a={}})=>e.jsx("iframe",{loading:"lazy",src:r,title:s,width:i,height:o,frameBorder:"0",scrolling:"no",className:t,style:{border:"none",borderRadius:"0.5rem",overflow:"hidden",...a}});export{r as C};

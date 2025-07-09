@@ -1,0 +1,1 @@
+import{r as e}from"./react-vendor-D0W8e6il.js";import{j as r}from"./index-BBM8KZhz.js";const s=e.memo(({className:e="",children:s,hoverEffect:a=!0})=>r.jsx("div",{className:`glass-card p-4 sm:p-6 ${a?"hover:border-electric-violet/50":""} ${e}`,children:s}),(e,r)=>e.className===r.className&&e.hoverEffect===r.hoverEffect);s.displayName="Card";export{s as C};

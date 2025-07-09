@@ -16,12 +16,14 @@ export default defineConfig({
       }
     }),
     VitePWA({
-      strategies: 'generateSW',
+      strategies: 'injectManifest',
+      srcDir: 'src/sw',
+      filename: 'sw.ts',
       injectRegister: false,
       workbox: {
         globDirectory: 'dist',
         globPatterns: ['**/*.{js,wasm,css,html}'],
-        globIgnores: ['node_modules/**/*', 'sw.js', 'workbox-*.js'],
+        globIgnores: ['node_modules/**/*', 'workbox-*.js'], // Removed 'sw.js'
         navigationPreload: true,
         cleanupOutdatedCaches: true,
         clientsClaim: true,

@@ -14,6 +14,7 @@
     "test:ui": "vitest --ui",
     "test:coverage": "vitest run --coverage",
     "test:a11y": "vitest run --config vitest.config.a11y.ts",
+    "test:e2e": "vitest run --config vitest.config.e2e.ts",
     "lhci:ci": "lhci --config=./lighthouserc.json",
     "optimize:images": "sharp-cli --input \"public/img/**/*.{jpg,png}\" --output \"public/img/optimized\" --format webp,avif --resize 320,640,1024"
   },
