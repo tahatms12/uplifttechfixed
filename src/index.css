@@ -1,3 +1,6 @@
+@import "@fontsource/poppins/400.css";
+@import "@fontsource/poppins/600.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -49,7 +52,7 @@
 
 @layer components {
   .btn {
-    @apply px-4 sm:px-6 py-2 sm:py-3 rounded-md font-medium transition-all duration-300 inline-flex items-center justify-center;
+    @apply px-4 sm:px-6 py-2 sm:py-3 rounded-md font-medium inline-flex items-center justify-center;
     @apply focus:outline-none focus:ring-2 focus:ring-electric-violet focus:ring-offset-2 focus:ring-offset-rich-black;
   }
 
@@ -81,7 +84,6 @@
 
   .glass-card {
     @apply bg-rich-black/40 backdrop-blur-lg border border-neutral-700 rounded-lg sm:rounded-xl;
-    @apply transition-all duration-300;
   }
   
   @media (hover: hover) {
@@ -91,7 +93,7 @@
   }
   
   .nav-link {
-    @apply relative px-1 sm:px-2 py-1 text-sm sm:text-base/80 hover:text-base transition-colors duration-300;
+    @apply relative px-1 sm:px-2 py-1 text-sm sm:text-base/80 hover:text-base;
     @apply focus:outline-none focus:ring-2 focus:ring-electric-violet focus:ring-offset-2 focus:ring-offset-rich-black;
   }
   
@@ -109,15 +111,5 @@
     .glass-card {
       padding: 1rem;
     }
-  }
-}
-
-/* Optimize animations */
-@media (prefers-reduced-motion: reduce) {
-  *, ::before, ::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
   }
 }

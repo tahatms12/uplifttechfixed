@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion, useReducedMotion } from 'framer-motion';
 
 interface GridOverlayProps {
   className?: string;
@@ -10,14 +9,9 @@ const GridOverlay: React.FC<GridOverlayProps> = ({
   className = '',
   variant = 'fine'
 }) => {
-  const shouldReduceMotion = useReducedMotion();
-
   return (
-    <motion.div
+    <div
       className={`absolute inset-0 pointer-events-none overflow-hidden ${className}`}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: shouldReduceMotion ? 0 : 0.5 }}
     >
       {variant === 'fine' && (
         <div 
@@ -55,7 +49,7 @@ const GridOverlay: React.FC<GridOverlayProps> = ({
           }}
         />
       )}
-    </motion.div>
+    </div>
   );
 };
 

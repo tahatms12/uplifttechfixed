@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { motion } from 'framer-motion';
 import { Phone, Mail, Linkedin } from 'lucide-react';
 import Section from '../components/ui/Section';
 import CalEmbed from '../components/calendar/CalEmbed';
@@ -14,39 +13,37 @@ const ContactPage: React.FC = () => {
     <>
       {/* Hero Section */}
       <div className="pt-32 pb-20 gradient-bg relative overflow-hidden">
-        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-electric-violet/20 rounded-full filter blur-[100px] animate-glow"></div>
+        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-electric-violet/20 rounded-full filter blur-[100px]"></div>
         
         <div className="container-custom relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+          <div
             className="max-w-3xl"
           >
             <h1 className="font-poppins font-semibold mb-6">
-              Contact <span className="gradient-text">Us</span>
+              Connect with <span className="gradient-text">UPLIFT Technologies</span>
             </h1>
             <p className="text-xl text-white/80">
-              Have questions about our services? Ready to explore how UPLIFT can transform your operations? We're here to help.
+              Have questions or ready to discuss your business needs? Get in touch with our team for tailored solutions and expert support.
             </p>
-          </motion.div>
+          </div>
         </div>
       </div>
       
       {/* Calendar Section */}
       <Section>
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-semibold mb-4">Schedule a Meeting</h2>
+          <h2 className="text-3xl font-semibold mb-4">Book Your Consultation</h2>
           <p className="text-white/80 max-w-2xl mx-auto">
-            Book a time that works best for you. We'll discuss your needs and how UPLIFT can help transform your operations.
+            Select a convenient time for a personalized discussion. We'll explore your requirements and how UPLIFT can optimize your operations.
           </p>
         </div>
         
         <div className="glass-card p-8">
           <CalEmbed 
-            elementId="booking-calendar" 
-            calLink="uplift-tech/30min"
-            layout="week_view"
+            src="https://calendar.zoho.com/zc/ui/embed/#calendar=zz08011230b90f11f7d9e4f845d3466bf542b203c85792616eef005cce40c051b56dd6ff3b7f21ca86a6ce7ce3b245f62337f9fb78&title=taha"
+            title="taha"
+            width="650"
+            height="500"
           />
         </div>
       </Section>
@@ -54,15 +51,12 @@ const ContactPage: React.FC = () => {
       {/* Contact Form Section */}
       <Section>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+          <div
+            className="relative"
           >
-            <h2 className="text-3xl font-semibold mb-6">Get in Touch</h2>
+            <h2 className="text-3xl font-semibold mb-6">Submit an Inquiry</h2>
             <p className="text-white/80 mb-8">
-              Fill out our discovery form to help us understand your needs better. We'll get back to you within 24 hours.
+              Complete our brief discovery form. Our team will respond within 24 hours to understand your needs and propose effective strategies.
             </p>
             
             <div className="glass-card p-8">
@@ -73,25 +67,22 @@ const ContactPage: React.FC = () => {
                 src='https://forms.zohopublic.com/tahauplifttec1/form/UpliftTechnologiesDiscoveryForm/formperma/vARQawZk-3SV30FFnZL2mqa1HP_TsU1a_CGswypRAag'
               />
             </div>
-          </motion.div>
+          </div>
           
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+          <div
+            className="relative"
           >
             <div className="glass-card p-8 h-full">
-              <h2 className="text-2xl font-semibold mb-6">Contact Information</h2>
+              <h2 className="text-2xl font-semibold mb-6">Direct Contact & Support</h2>
               
               <div className="space-y-6 sm:space-y-8">
                 <div>
-                  <h3 className="text-lg font-medium mb-4">Reach Us Directly</h3>
+                  <h3 className="text-lg font-medium mb-4">Reach Our Team Directly</h3>
                   <ul className="space-y-4">
                     <li>
                       <a 
                         href="tel:8556435404" 
-                        className="flex items-center text-white/80 hover:text-electric-violet transition-colors"
+                        className="flex items-center text-white/80 hover:text-electric-violet"
                       >
                         <Phone size={20} className="mr-4 text-electric-violet" />
                         <span>(855) 643-5404</span>
@@ -100,7 +91,7 @@ const ContactPage: React.FC = () => {
                     <li>
                       <a 
                         href="mailto:business@uplift-technologies.com" 
-                        className="flex items-center text-white/80 hover:text-electric-violet transition-colors"
+                        className="flex items-center text-white/80 hover:text-electric-violet"
                       >
                         <Mail size={20} className="mr-4 text-electric-violet" />
                         <span>business@uplift-technologies.com</span>
@@ -111,7 +102,7 @@ const ContactPage: React.FC = () => {
                         href="https://linkedin.com/company/uplift-technologies" 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="flex items-center text-white/80 hover:text-electric-violet transition-colors"
+                        className="flex items-center text-white/80 hover:text-electric-violet"
                       >
                         <Linkedin size={20} className="mr-4 text-electric-violet" />
                         <span>LinkedIn</span>
@@ -121,17 +112,17 @@ const ContactPage: React.FC = () => {
                 </div>
                 
                 <div>
-                  <h3 className="text-lg font-medium mb-4">Office Hours</h3>
+                  <h3 className="text-lg font-medium mb-4">Operational Hours</h3>
                   <p className="text-white/80 mb-2">
-                    Our team is available 24/7 for your business needs.
+                    Our dedicated team provides 24/7 support for your business continuity.
                   </p>
                   <p className="text-white/80">
-                    Sales & Support: Monday - Friday, 8am - 8pm EST
+                    Sales & Client Support: Monday - Friday, 8am - 8pm EST
                   </p>
                 </div>
                 
                 <div>
-                  <h3 className="text-lg font-medium mb-4">Frequently Asked Questions</h3>
+                  <h3 className="text-lg font-medium mb-4">Common Questions</h3>
                   <div className="space-y-4">
                     <div>
                       <h4 className="font-medium text-electric-violet text-sm sm:text-base">How quickly can you start working with us?</h4>
@@ -155,25 +146,25 @@ const ContactPage: React.FC = () => {
                 </div>
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </Section>
       
       {/* Map Section */}
       <Section className="bg-deep-purple/5">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-semibold mb-4">Global Reach, Local Expertise</h2>
+          <h2 className="text-3xl font-semibold mb-4">Global Reach, Local Impact</h2>
           <p className="text-white/80 max-w-3xl mx-auto">
-            While our team operates remotely across the globe, we provide localized expertise for businesses throughout North America, the UK, and the GCC.
+            Our remote global team delivers specialized expertise to businesses across North America, the UK, and the GCC, ensuring localized and effective client solutions.
           </p>
         </div>
         
         <div className="relative rounded-lg sm:rounded-xl overflow-hidden h-[250px] sm:h-[350px] md:h-[400px]">
           <div className="absolute inset-0 bg-neutral-900/50 z-10 flex items-center justify-center">
             <div className="glass-card p-4 sm:p-6 md:p-8 max-w-xs sm:max-w-sm md:max-w-md text-center mx-4">
-              <h3 className="text-2xl font-medium mb-4">Ready to Get Started?</h3>
+              <h3 className="text-2xl font-medium mb-4">Ready to Optimize Your Business?</h3>
               <p className="text-white/80 text-sm sm:text-base mb-4 sm:mb-6">
-                Book a consultation today and discover how our services can transform your operations.
+                Schedule a consultation today and discover how our services can drive efficiency, reduce costs, and accelerate your growth.
               </p>
             </div>
           </div>

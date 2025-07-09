@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { motion } from 'framer-motion';
 import Section from '../ui/Section';
 import CalEmbed from './CalEmbed';
 
@@ -15,10 +14,7 @@ const CalendarPage: React.FC = () => {
         <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-electric-violet/20 rounded-full filter blur-[100px] animate-glow"></div>
         
         <div className="container-custom relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+          <div
             className="max-w-3xl"
           >
             <h1 className="font-poppins font-semibold mb-6">
@@ -27,7 +23,7 @@ const CalendarPage: React.FC = () => {
             <p className="text-xl text-white/80">
               Schedule a time to discuss your business needs and discover how UPLIFT Technologies can help transform your operations.
             </p>
-          </motion.div>
+          </div>
         </div>
       </div>
       
@@ -42,9 +38,10 @@ const CalendarPage: React.FC = () => {
         
         <div className="glass-card p-8">
           <CalEmbed 
-            elementId="full-page-calendar" 
-            calLink="uplift-tech/30min"
-            layout="week_view"
+            src="https://calendar.zoho.com/zc/ui/embed/#calendar=zz08011230b90f11f7d9e4f845d3466bf542b203c85792616eef005cce40c051b56dd6ff3b7f21ca86a6ce7ce3b245f62337f9fb78&title=taha&type=4&language=en&timezone=America%2FToronto&showTitle=1&showTimezone=1&startingDayOfWeek=0&timeFormat=0&color=0&showLogo=1" 
+            title="taha"
+            width="650"
+            height="500"
             style={{ height: '800px' }}
           />
         </div>
@@ -53,44 +50,32 @@ const CalendarPage: React.FC = () => {
       {/* Additional Info Section */}
       <Section className="bg-deep-purple/5">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
+          <div
             className="glass-card p-6"
           >
             <h3 className="text-xl font-medium mb-3">What to Expect</h3>
             <p className="text-white/80">
               During our initial consultation, we'll discuss your business challenges, goals, and how our services can be tailored to meet your specific needs.
             </p>
-          </motion.div>
+          </div>
           
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
+          <div
             className="glass-card p-6"
           >
             <h3 className="text-xl font-medium mb-3">Meeting Duration</h3>
             <p className="text-white/80">
               Our initial consultations typically last 30 minutes. If we need more time, we can schedule a follow-up session to dive deeper into your requirements.
             </p>
-          </motion.div>
+          </div>
           
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+          <div
             className="glass-card p-6"
           >
             <h3 className="text-xl font-medium mb-3">Preparation</h3>
             <p className="text-white/80">
               To make the most of our time together, consider preparing a brief overview of your current operations, challenges, and goals you'd like to achieve.
             </p>
-          </motion.div>
+          </div>
         </div>
       </Section>
     </>

@@ -17,7 +17,6 @@ interface ThreeConfig {
 interface UseThreeProps {
   containerRef: React.RefObject<HTMLDivElement>;
   isWebGLAvailable: boolean;
-  isReducedMotion: boolean;
   isMobile: boolean;
   config: ThreeConfig;
 }
@@ -25,7 +24,6 @@ interface UseThreeProps {
 export const useThree = ({
   containerRef,
   isWebGLAvailable,
-  isReducedMotion,
   isMobile,
   config
 }: UseThreeProps) => {
@@ -33,7 +31,6 @@ export const useThree = ({
   const cameraRef = useRef<THREE.PerspectiveCamera>();
   const rendererRef = useRef<THREE.WebGLRenderer>();
   const particlesRef = useRef<THREE.Points>();
-  const frameRef = useRef<number>();
 
   useEffect(() => {
     if (!isWebGLAvailable || !containerRef.current) return;
@@ -123,41 +120,36 @@ export const useThree = ({
       const delta = (time - lastTime) * 0.001 * config.speed;
       lastTime = time;
 
-      if (!isReducedMotion) {
-        const positions = geometry.attributes.position.array as Float32Array;
-        const velocities = geometry.attributes.velocity.array as Float32Array;
+      const positions = geometry.attributes.position.array as Float32Array;
+      const velocities = geometry.attributes.velocity.array as Float32Array;
 
-        for (let i = 0; i < config.particleCount; i++) {
-          const i3 = i * 3;
-          positions[i3] += velocities[i3] * delta;
-          positions[i3 + 1] += velocities[i3 + 1] * delta;
-          positions[i3 + 2] += velocities[i3 + 2] * delta;
+      for (let i = 0; i < config.particleCount; i++) {
+        const i3 = i * 3;
+        positions[i3] += velocities[i3] * delta;
+        positions[i3 + 1] += velocities[i3 + 1] * delta;
+        positions[i3 + 2] += velocities[i3 + 2] * delta;
 
-          // Boundary check
-          for (let j = 0; j < 3; j++) {
-            if (Math.abs(positions[i3 + j]) > 50) {
-              positions[i3 + j] *= -0.9;
-              velocities[i3 + j] *= -0.9;
-            }
+        // Boundary check
+        for (let j = 0; j < 3; j++) {
+          if (Math.abs(positions[i3 + j]) > 50) {
+            positions[i3 + j] *= -0.9;
+            velocities[i3 + j] *= -0.9;
           }
         }
-
-        geometry.attributes.position.needsUpdate = true;
       }
+
+      geometry.attributes.position.needsUpdate = true;
 
       material.uniforms.uTime.value = time * 0.001;
       renderer.render(scene, camera);
-      frameRef.current = requestAnimationFrame(animate);
+      requestAnimationFrame(animate);
     };
 
-    frameRef.current = requestAnimationFrame(animate);
+    requestAnimationFrame(animate);
 
     // Cleanup
     return () => {
       window.removeEventListener('resize', handleResize);
-      if (frameRef.current) {
-        cancelAnimationFrame(frameRef.current);
-      }
       if (containerRef.current && renderer.domElement) {
         containerRef.current.removeChild(renderer.domElement);
       }
@@ -165,5 +157,5 @@ export const useThree = ({
       material.dispose();
       renderer.dispose();
     };
-  }, [isWebGLAvailable, isReducedMotion, isMobile, config]);
+  }, [isWebGLAvailable, isMobile, config, containerRef]);
 };

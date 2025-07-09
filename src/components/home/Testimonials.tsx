@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight, Quote } from 'lucide-react';
 import Section from '../ui/Section';
 
@@ -44,24 +43,16 @@ const Testimonials: React.FC = () => {
   
   return (
     <Section className="bg-gradient-to-b from-deep-purple/10 to-rich-black">
-      <motion.div 
+      <div 
         className="max-w-xl sm:max-w-2xl md:max-w-4xl mx-auto text-center relative px-4"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.7 }}
       >
         <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/4 text-electric-violet opacity-20">
           <Quote size={120} />
         </div>
         
         <div className="relative z-10">
-          <motion.div
+          <div
             key={currentIndex}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.5 }}
           >
             <p className="text-xl sm:text-2xl md:text-3xl font-poppins font-medium leading-relaxed mb-6 sm:mb-8">
               "{testimonials[currentIndex].quote}"
@@ -75,12 +66,12 @@ const Testimonials: React.FC = () => {
                 {testimonials[currentIndex].position}, {testimonials[currentIndex].company}
               </p>
             </div>
-          </motion.div>
+          </div>
           
           <div className="flex justify-center gap-3 sm:gap-4 mt-8 sm:mt-10">
             <button 
               onClick={prevTestimonial}
-              className="p-2 rounded-full border border-neutral-700 hover:border-electric-violet hover:bg-deep-purple/20 transition-colors"
+              className="p-2 rounded-full border border-neutral-700 hover:border-electric-violet hover:bg-deep-purple/20"
               aria-label="Previous testimonial"
             >
               <ChevronLeft size={20} />
@@ -90,7 +81,7 @@ const Testimonials: React.FC = () => {
                 <button 
                   key={index}
                   onClick={() => setCurrentIndex(index)}
-                  className={`w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full transition-all ${
+                  className={`w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full ${
                     currentIndex === index 
                       ? 'bg-electric-violet w-6 sm:w-8' 
                       : 'bg-neutral-700 hover:bg-neutral-500'
@@ -101,14 +92,14 @@ const Testimonials: React.FC = () => {
             </div>
             <button 
               onClick={nextTestimonial}
-              className="p-2 rounded-full border border-neutral-700 hover:border-electric-violet hover:bg-deep-purple/20 transition-colors"
+              className="p-2 rounded-full border border-neutral-700 hover:border-electric-violet hover:bg-deep-purple/20"
               aria-label="Next testimonial"
             >
               <ChevronRight size={20} />
             </button>
           </div>
         </div>
-      </motion.div>
+      </div>
     </Section>
   );
 };

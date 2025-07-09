@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
 import { CreditCard, LockIcon, Shield, CheckCircle } from 'lucide-react';
 import Section from '../components/ui/Section';
 import Button from '../components/ui/Button';
@@ -40,10 +39,7 @@ const PaymentPage: React.FC = () => {
     <div className="pt-32 pb-20">
       <Section className="max-w-4xl mx-auto">
         <div className="text-center mb-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+          <div
           >
             <h1 className="text-3xl md:text-4xl font-semibold mb-4">
               Secure <span className="gradient-text">Payment</span> Portal
@@ -51,15 +47,12 @@ const PaymentPage: React.FC = () => {
             <p className="text-white/80 max-w-2xl mx-auto">
               Make a secure payment for UPLIFT Technologies services. All transactions are protected with industry-standard encryption.
             </p>
-          </motion.div>
+          </div>
         </div>
         
         <div className="glass-card p-8 md:p-10">
           {paymentComplete ? (
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5 }}
+            <div
               className="text-center"
             >
               <div className="flex justify-center mb-6">
@@ -77,12 +70,9 @@ const PaymentPage: React.FC = () => {
               >
                 Return to Homepage
               </Button>
-            </motion.div>
+            </div>
           ) : (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6 }}
+            <div
             >
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="flex items-center justify-between border-b border-neutral-700 pb-4 mb-6">
@@ -232,7 +222,7 @@ const PaymentPage: React.FC = () => {
                   </Button>
                 </div>
               </form>
-            </motion.div>
+            </div>
           )}
         </div>
       </Section>

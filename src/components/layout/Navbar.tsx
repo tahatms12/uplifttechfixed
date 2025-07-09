@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronDown, Calendar } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
 import Logo from '../ui/Logo';
 
 const Navbar: React.FC = () => {
@@ -59,7 +58,7 @@ const Navbar: React.FC = () => {
   return (
     <>
       <header 
-        className={`fixed w-full z-50 transition-all duration-300 ${
+        className={`fixed w-full z-50 ${
           isScrolled || isMenuOpen ? 'bg-rich-black/95 backdrop-blur-md py-2 shadow-lg' : 'bg-transparent py-3 sm:py-5'
         }`}
       >
@@ -106,13 +105,9 @@ const Navbar: React.FC = () => {
                   )}
                   
                   {link.hasDropdown && (
-                    <AnimatePresence>
+                    <div>
                       {isServicesOpen && (
-                        <motion.div
-                          initial={{ opacity: 0, y: 10 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          exit={{ opacity: 0, y: 10 }}
-                          transition={{ duration: 0.2 }}
+                        <div
                           className="absolute left-0 mt-2 w-56 bg-rich-black/95 backdrop-blur-md border border-neutral-800 rounded-md shadow-lg overflow-hidden"
                           onMouseEnter={() => setIsServicesOpen(true)}
                           onMouseLeave={() => setIsServicesOpen(false)}
@@ -122,15 +117,15 @@ const Navbar: React.FC = () => {
                               <Link
                                 key={service.name}
                                 to={service.path}
-                                className="block px-4 py-2 text-sm hover:bg-deep-purple/30 transition-colors"
+                                className="block px-4 py-2 text-sm hover:bg-deep-purple/30"
                               >
                                 {service.name}
                               </Link>
                             ))}
                           </div>
-                        </motion.div>
+                        </div>
                       )}
-                    </AnimatePresence>
+                    </div>
                   )}
                 </div>
               ))}
@@ -145,22 +140,14 @@ const Navbar: React.FC = () => {
       </header>
 
       {/* Mobile Navigation Overlay */}
-      <AnimatePresence>
+      <div>
         {isMenuOpen && (
           <>
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.2 }}
+            <div
               className="fixed inset-0 bg-rich-black/95 backdrop-blur-md z-40"
               onClick={closeMenu}
             />
-            <motion.div 
-              initial={{ opacity: 0, x: '100%' }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: '100%' }}
-              transition={{ duration: 0.3 }}
+            <div 
               className="fixed inset-0 bg-rich-black/98 backdrop-blur-md lg:hidden flex flex-col pt-24 px-6 z-40"
               style={{
                 backgroundImage: `url('https://24vzlu2kzs.ufs.sh/f/4JlBnp1v6U48LYcCDZiUMZzX7lfxvW3hEk5JKuRtbm1dNVHP')`,
@@ -181,32 +168,28 @@ const Navbar: React.FC = () => {
                           {link.name}
                           <ChevronDown 
                             size={20} 
-                            className={`ml-2 transition-transform duration-300 ${isServicesOpen ? 'rotate-180' : ''}`}
+                            className={`ml-2 ${isServicesOpen ? 'rotate-180' : ''}`}
                           />
                         </button>
                         
-                        <AnimatePresence>
+                        <div>
                           {isServicesOpen && (
-                            <motion.div
-                              initial={{ height: 0, opacity: 0 }}
-                              animate={{ height: 'auto', opacity: 1 }}
-                              exit={{ height: 0, opacity: 0 }}
-                              transition={{ duration: 0.3 }}
+                            <div
                               className="overflow-hidden ml-4 border-l-2 border-electric-violet/30 pl-4 mt-2"
                             >
                               {serviceLinks.map((service) => (
                                 <Link
                                   key={service.name}
                                   to={service.path}
-                                  className="block py-2 text-white/80 hover:text-electric-violet transition-colors"
+                                  className="block py-2 text-white/80 hover:text-electric-violet"
                                   onClick={closeMenu}
                                 >
                                   {service.name}
                                 </Link>
                               ))}
-                            </motion.div>
+                            </div>
                           )}
-                        </AnimatePresence>
+                        </div>
                       </>
                     ) : (
                       <NavLink 
@@ -235,10 +218,10 @@ const Navbar: React.FC = () => {
                   </Link>
                 </div>
               </div>
-            </motion.div>
+            </div>
           </>
         )}
-      </AnimatePresence>
+      </div>
     </>
   );
 };

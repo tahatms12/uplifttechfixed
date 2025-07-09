@@ -1,8 +1,9 @@
+
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { VitePWA } from 'vite-plugin-pwa';
-import viteCompression from 'vite-plugin-compression';
 import { visualizer } from 'rollup-plugin-visualizer';
+import path from 'path';
 
 export default defineConfig({
   plugins: [
@@ -37,20 +38,18 @@ export default defineConfig({
         ]
       }
     }),
-    viteCompression({
-      algorithm: 'brotli',
-      threshold: 1024
-    }),
-    viteCompression({
-      algorithm: 'gzip',
-      threshold: 1024
-    }),
+    
     process.env.ANALYZE && visualizer({
       open: true,
       gzipSize: true,
       brotliSize: true
     })
   ],
+  resolve: {
+    alias: {
+      '/fonts': path.resolve(__dirname, 'public/fonts')
+    }
+  },
   build: {
     target: 'es2022',
     minify: 'terser',
@@ -63,9 +62,8 @@ export default defineConfig({
       output: {
         manualChunks: {
           'react-vendor': ['react', 'react-dom', 'react-router-dom'],
-          'framer-motion': ['framer-motion'],
-          'ui-components': ['@headlessui/react', 'lucide-react'],
-          'email-calendar': ['@emailjs/browser', '@calcom/embed-react']
+          
+          'ui-components': ['@headlessui/react', 'lucide-react']
         },
         chunkFileNames: 'assets/[name]-[hash].js',
         entryFileNames: 'assets/[name]-[hash].js',
@@ -88,7 +86,7 @@ export default defineConfig({
     }
   },
   optimizeDeps: {
-    include: ['react', 'react-dom', 'react-router-dom', 'framer-motion'],
-    exclude: ['@calcom/embed-react']
+    include: ['react', 'react-dom', 'react-router-dom'],
+    exclude: []
   }
 });

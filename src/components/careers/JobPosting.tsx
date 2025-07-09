@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
 import { Briefcase, MapPin, Clock, ChevronsUpDown, Check, ArrowRight } from 'lucide-react';
 import Button from '../ui/Button';
 
@@ -21,19 +19,16 @@ const JobPosting: React.FC<JobPostingProps> = ({ job }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
-    <motion.div
+    <div
       data-testid="job-posting-card"
       className="glass-card overflow-hidden"
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5 }}
     >
       <button 
         className="w-full flex flex-col md:flex-row md:items-center justify-between p-6"
         onClick={() => setIsExpanded(!isExpanded)}
         aria-expanded={isExpanded}
         aria-controls={`job-details-${job.id}`}
+        aria-label={isExpanded ? `Collapse details for ${job.title}` : `Expand details for ${job.title}`}
       >
         <div className="flex-1">
           <h2 className="text-xl font-medium mb-2">{job.title}</h2>
@@ -65,14 +60,9 @@ const JobPosting: React.FC<JobPostingProps> = ({ job }) => {
         </div>
       </button>
       
-      <AnimatePresence>
-        {isExpanded && (
-          <motion.div
+      {isExpanded && (
+          <div
             id={`job-details-${job.id}`}
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3 }}
             className="px-6 pb-6"
           >
             <div className="pt-6 border-t border-neutral-800">
@@ -117,10 +107,9 @@ const JobPosting: React.FC<JobPostingProps> = ({ job }) => {
                 <ArrowRight size={18} className="ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>
             </div>
-          </motion.div>
+          </div>
         )}
-      </AnimatePresence>
-    </motion.div>
+    </div>
   );
 };
 
