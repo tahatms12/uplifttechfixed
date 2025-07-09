@@ -18,7 +18,7 @@ const Footer: React.FC = () => {
                 href="https://linkedin.com/company/uplift-technologies-intl" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-white/70 hover:text-electric-violet transition-colors duration-300"
+                className="text-white/70 hover:text-electric-violet"
                 aria-label="LinkedIn"
               >
                 <Linkedin size={20} />
@@ -33,7 +33,7 @@ const Footer: React.FC = () => {
                 <li key={service}>
                   <Link 
                     to={`/services/${service.toLowerCase().replace(' ', '-')}`}
-                    className="text-white/70 hover:text-electric-violet transition-colors duration-300 flex items-center"
+                    className="text-white/70 hover:text-electric-violet flex items-center"
                   >
                     <ArrowRight size={14} className="mr-2" />
                     {service}
@@ -56,7 +56,7 @@ const Footer: React.FC = () => {
                 <li key={item.name}>
                   <Link 
                     to={item.path}
-                    className="text-white/70 hover:text-electric-violet transition-colors duration-300 flex items-center"
+                    className="text-white/70 hover:text-electric-violet flex items-center"
                   >
                     <ArrowRight size={14} className="mr-2" />
                     {item.name}
@@ -72,7 +72,7 @@ const Footer: React.FC = () => {
               <li>
                 <a 
                   href="tel:8556435404" 
-                  className="text-white/70 hover:text-electric-violet transition-colors duration-300 flex items-center"
+                  className="text-white/70 hover:text-electric-violet flex items-center"
                 >
                   <Phone size={18} className="mr-3" />
                   (855) 643-5404
@@ -81,7 +81,7 @@ const Footer: React.FC = () => {
               <li>
                 <a 
                   href="mailto:business@uplift-technologies.com" 
-                  className="text-white/70 hover:text-electric-violet transition-colors duration-300 flex items-center"
+                  className="text-white/70 hover:text-electric-violet flex items-center"
                 >
                   <Mail size={18} className="mr-3" />
                   business@uplift-technologies.com
@@ -109,10 +109,10 @@ const Footer: React.FC = () => {
         <div className="mt-10 sm:mt-12 md:mt-16 pt-4 sm:pt-6 border-t border-neutral-800 text-xs sm:text-sm text-white/50 flex flex-col sm:flex-row justify-between items-center">
           <p>© {new Date().getFullYear()} Uplift Technologies. All rights reserved.</p>
           <div className="mt-3 sm:mt-0 flex space-x-4 sm:space-x-6">
-            <Link to="/privacy-policy" className="hover:text-white transition-colors duration-300">
+            <Link to="/privacy-policy" className="hover:text-white">
               Privacy Policy
             </Link>
-            <Link to="/terms-of-service" className="hover:text-white transition-colors duration-300">
+            <Link to="/terms-of-service" className="hover:text-white">
               Terms of Service
             </Link>
           </div>
