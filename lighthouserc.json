@@ -1,0 +1,21 @@
+{
+  "ci": {
+    "collect": {
+      "url": ["http://localhost:8080"],
+      "startServerCommand": "npm run build && npx http-server ./dist -p 8080 -s -d false",
+      "startServerReadyPattern": "listening on",
+      "numberOfRuns": 3
+    },
+    "assert": {
+      "assertions": {
+        "categories:performance": ["error", {"minScore": 0.95}],
+        "metrics:largest-contentful-paint": ["error", {"maxNumericValue": 2500}],
+        "metrics:cumulative-layout-shift": ["error", {"maxNumericValue": 0.1}],
+        "metrics:interactive": ["error", {"maxNumericValue": 200}]
+      }
+    },
+    "upload": {
+      "target": "temporary-public-storage"
+    }
+  }
+}

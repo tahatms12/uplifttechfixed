@@ -56,6 +56,12 @@ export default {
     },
   },
   plugins: [],
+  corePlugins: {
+    preflight: false,
+  },
+  layers: {
+    utilities: '@tailwind utilities',
+  },
   future: {
     hoverOnlyWhenSupported: true,
     respectDefaultRingColorOpacity: true,

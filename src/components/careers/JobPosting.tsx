@@ -104,7 +104,7 @@ const JobPosting: React.FC<JobPostingProps> = ({ job }) => {
                 aria-label="Apply now for this position"
               >
                 Apply Now
-                <ArrowRight size={18} className="ml-2 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight size={18} className="ml-2 group-hover:translate-x-1" />
               </Button>
             </div>
           </div>

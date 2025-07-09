@@ -5,6 +5,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities;
+
 /* Mobile-first base styles */
 @layer base {
   html {
@@ -17,6 +19,18 @@
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    :root {
+      --animation-duration: 0.12s;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    :root {
+      --animation-duration: 0s;
+    }
   }
 
   h1, h2, h3, h4, h5, h6 {
