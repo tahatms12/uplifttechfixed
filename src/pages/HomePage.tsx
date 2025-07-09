@@ -1,10 +1,21 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import { Helmet } from 'react-helmet';
 import Hero from '../components/home/Hero';
-import Services from '../components/home/Services';
-import CaseStudies from '../components/home/CaseStudies';
-import Testimonials from '../components/home/Testimonials';
-import CallToAction from '../components/home/CallToAction';
+import LoadingSpinner from '../components/ui/LoadingSpinner';
+
+// Lazy load below-the-fold components
+const Services = lazy(() => 
+  import(/* webpackChunkName: "services" */ '../components/home/Services')
+);
+const CaseStudies = lazy(() => 
+  import(/* webpackChunkName: "case-studies" */ '../components/home/CaseStudies')
+);
+const Testimonials = lazy(() => 
+  import(/* webpackChunkName: "testimonials" */ '../components/home/Testimonials')
+);
+const CallToAction = lazy(() => 
+  import(/* webpackChunkName: "call-to-action" */ '../components/home/CallToAction')
+);
 
 const HomePage: React.FC = () => {
   return (
@@ -18,13 +29,21 @@ const HomePage: React.FC = () => {
       <Hero />
       
       {/* Lazy load below-the-fold sections with loading states */}
-      <Services />
+      <Suspense fallback={<LoadingSpinner />}>
+        <Services />
+      </Suspense>
       
-      <CaseStudies />
+      <Suspense fallback={<LoadingSpinner />}>
+        <CaseStudies />
+      </Suspense>
       
-      <Testimonials />
+      <Suspense fallback={<LoadingSpinner />}>
+        <Testimonials />
+      </Suspense>
       
-      <CallToAction />
+      <Suspense fallback={<LoadingSpinner />}>
+        <CallToAction />
+      </Suspense>
     </div>
   );
 };
