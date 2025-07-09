@@ -9,23 +9,14 @@ interface WebGLBackgroundProps {
 const WebGLBackground: React.FC<WebGLBackgroundProps> = ({ className = '' }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [isWebGLAvailable, setIsWebGLAvailable] = useState(true);
-  const [isReducedMotion, setIsReducedMotion] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     // Check WebGL availability
-    try {
-      const canvas = document.createElement('canvas');
-      const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
-      setIsWebGLAvailable(!!gl);
-    } catch (e) {
-      setIsWebGLAvailable(false);
-    }
+    const canvas = document.createElement('canvas');
+    const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+    setIsWebGLAvailable(!!gl);
 
-    // Check reduced motion preference
-    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-    setIsReducedMotion(mediaQuery.matches);
-    
     // Check if mobile device
     setIsMobile(window.innerWidth < 768);
 
@@ -40,12 +31,11 @@ const WebGLBackground: React.FC<WebGLBackgroundProps> = ({ className = '' }) => 
   useThree({
     containerRef,
     isWebGLAvailable,
-    isReducedMotion,
     isMobile,
     config: {
       particleCount: isMobile ? 50 : 100,
       particleSize: isMobile ? 3 : 5,
-      speed: isReducedMotion ? 0.1 : 0.3,
+      speed: 0.3,
       colors: {
         primary: new THREE.Color('#9B1DFF'),
         secondary: new THREE.Color('#280059'),

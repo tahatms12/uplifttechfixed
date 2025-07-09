@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
 import { Users, TrendingUp, BadgeDollarSign, Megaphone, PhoneCall, ArrowRight, CheckCircle } from 'lucide-react';
 import Section from '../components/ui/Section';
 import Button from '../components/ui/Button';
@@ -19,7 +18,7 @@ interface ServiceDetail {
   imageSrc: string;
 }
 
-const ServiceDetailPage: React.FC = () => {
+export const ServiceDetailPage: React.FC = () => {
   const { service } = useParams<{ service: string }>();
   
   const servicesData: Record<string, ServiceDetail> = {
@@ -342,14 +341,11 @@ const ServiceDetailPage: React.FC = () => {
       
       {/* Hero Section */}
       <div className="pt-32 pb-20 gradient-bg relative overflow-hidden">
-        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-electric-violet/20 rounded-full filter blur-[100px] animate-glow"></div>
+        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-electric-violet/20 rounded-full filter blur-[100px]"></div>
         
         <div className="container-custom relative z-10">
           <div className="flex flex-col lg:flex-row items-center gap-16">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
+            <div
               className="lg:w-1/2"
             >
               <div className="flex items-center gap-4 mb-6">
@@ -357,108 +353,91 @@ const ServiceDetailPage: React.FC = () => {
                   {serviceData.icon}
                 </div>
                 <h1 className="font-poppins font-semibold">
-                  {serviceData.title} <span className="gradient-text">Services</span>
+                  {serviceData.title} <span className="gradient-text">Solutions: Expert Partnership</span>
                 </h1>
               </div>
               <p className="text-xl text-white/80 mb-8">
-                {serviceData.longDescription}
+                Leverage our {serviceData.title} expertise for measurable outcomes. We provide comprehensive {serviceData.longDescription.toLowerCase().replace('our', 'your')} to optimize operations and drive sustained growth.
               </p>
               <Button to="/contact" size="lg" className="group">
-                Book a Consultation
-                <ArrowRight size={18} className="ml-2 group-hover:translate-x-1 transition-transform" />
+                Request a Quote
+                <ArrowRight size={18} className="ml-2 group-hover:translate-x-1" />
               </Button>
-            </motion.div>
+            </div>
             
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
+            <div
               className="lg:w-1/2"
             >
               <div className="relative rounded-xl overflow-hidden">
                 <img 
+                  loading="lazy" 
                   src={serviceData.imageSrc}
                   alt={serviceData.title}
                   className="w-full object-cover aspect-video"
                 />
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
       </div>
       
       {/* Features Section */}
       <Section
-        title={`${serviceData.title} Service Features`}
-        subtitle="Our comprehensive solution includes everything you need for successful implementation."
+        title={`Core ${serviceData.title} Capabilities`}
+        subtitle="Our comprehensive suite of services ensures seamless integration and maximum operational efficiency."
       >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {serviceData.features.map((feature, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+          {serviceData.features.map((feature) => (
+            <div
               className="flex items-start gap-3 glass-card p-5"
             >
-              <CheckCircle size={22} className="text-electric-violet mt-1 flex-shrink-0" />
+              <CheckCircle size={22} className="text-electric-violet mt-1 mr-2 flex-shrink-0" />
               <p className="text-white/90">{feature}</p>
-            </motion.div>
+            </div>
           ))}
         </div>
       </Section>
       
       {/* Benefits Section */}
       <Section
-        title="Key Benefits"
-        subtitle={`Why businesses choose our ${serviceData.title} services to drive growth and efficiency.`}
+        title="Tangible Advantages"
+        subtitle={`Discover the quantifiable benefits of partnering with UPLIFT for ${serviceData.title} services. Achieve superior results and accelerate your business objectives.`}
         centered
         className="bg-deep-purple/5"
       >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {serviceData.benefits.map((benefit, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+          {serviceData.benefits.map((benefit) => (
+            <div
               className="glass-card p-6"
             >
               <h3 className="text-xl font-medium mb-3 text-electric-violet">{benefit.title}</h3>
               <p className="text-white/80">{benefit.description}</p>
-            </motion.div>
+            </div>
           ))}
         </div>
       </Section>
       
       {/* Process Section */}
       <Section
-        title="Our Process"
-        subtitle="How we implement and manage our services to ensure optimal results."
+        title="Our Implementation Roadmap"
+        subtitle="A structured approach to ensure successful deployment and continuous optimization of your services."
       >
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {serviceData.process.map((step, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+          {serviceData.process.map((step) => (
+            <div
               className="relative"
             >
               <div className="glass-card p-6">
                 <div className="absolute -top-4 -left-4 w-12 h-12 rounded-full bg-electric-violet flex items-center justify-center text-xl font-semibold">
-                  {index + 1}
+                  {step.title}
                 </div>
                 <h3 className="text-xl font-medium mb-3 mt-4">{step.title}</h3>
                 <p className="text-white/80">{step.description}</p>
               </div>
-              {index < serviceData.process.length - 1 && (
+              {/* {index < serviceData.process.length - 1 && (
                 <div className="hidden lg:block absolute top-1/2 -right-3 w-6 h-0.5 bg-electric-violet/50"></div>
-              )}
-            </motion.div>
+              )} */}
+            </div>
           ))}
         </div>
       </Section>
@@ -467,5 +446,3 @@ const ServiceDetailPage: React.FC = () => {
     </>
   );
 };
-
-export default ServiceDetailPage;

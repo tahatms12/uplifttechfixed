@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
 import { Users, TrendingUp, BadgeDollarSign, Megaphone, PhoneCall, ArrowRight, CheckCircle } from 'lucide-react';
 import Section from '../components/ui/Section';
 import Card from '../components/ui/Card';
@@ -13,7 +12,6 @@ interface ServiceProps {
   features: string[];
   imageSrc: string;
   path: string;
-  delay: number;
 }
 
 const ServiceCard: React.FC<ServiceProps> = ({
@@ -23,10 +21,9 @@ const ServiceCard: React.FC<ServiceProps> = ({
   features,
   imageSrc,
   path,
-  delay
 }) => {
   return (
-    <Card delay={delay} className="flex flex-col h-full">
+    <Card className="flex flex-col h-full">
       <div className="flex items-start gap-4 mb-6">
         <div className="text-electric-violet p-3 bg-electric-violet/10 rounded-lg">
           {icon}
@@ -41,7 +38,7 @@ const ServiceCard: React.FC<ServiceProps> = ({
         <img 
           src={imageSrc}
           alt={title}
-          className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+          className="w-full h-full object-cover"
         />
       </div>
       
@@ -60,7 +57,7 @@ const ServiceCard: React.FC<ServiceProps> = ({
           className="inline-flex items-center text-electric-violet font-medium hover:underline group"
         >
           Learn More
-          <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
+          <ArrowRight size={16} className="ml-2 group-hover:translate-x-1" />
         </Link>
       </div>
     </Card>
@@ -144,29 +141,26 @@ const ServicesPage: React.FC = () => {
     <>
       {/* Hero Section */}
       <div className="pt-32 pb-20 gradient-bg relative overflow-hidden">
-        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-electric-violet/20 rounded-full filter blur-[100px] animate-glow"></div>
+        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-electric-violet/20 rounded-full filter blur-[100px]"></div>
         
         <div className="container-custom relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+          <div
             className="max-w-3xl"
           >
             <h1 className="font-poppins font-semibold mb-6">
-              Our <span className="gradient-text">Services</span>
+              Strategic <span className="gradient-text">Outsourcing Solutions</span>
             </h1>
             <p className="text-xl text-white/80">
-              Comprehensive outsourcing solutions designed to optimize your operations, reduce costs, and drive growth across your organization.
+              Unlock unparalleled operational efficiency and drive sustainable business growth with our comprehensive, tailored outsourcing services.
             </p>
-          </motion.div>
+          </div>
         </div>
       </div>
       
       {/* Services Overview */}
       <Section>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service, index) => (
+          {services.map((service) => (
             <ServiceCard
               key={service.title}
               icon={service.icon}
@@ -175,7 +169,6 @@ const ServicesPage: React.FC = () => {
               features={service.features}
               imageSrc={service.imageSrc}
               path={service.path}
-              delay={index}
             />
           ))}
         </div>
@@ -183,17 +176,13 @@ const ServicesPage: React.FC = () => {
       
       {/* Why Choose Us */}
       <Section
-        title="Why Choose UPLIFT"
-        subtitle="We deliver more than just services — we provide comprehensive solutions that transform how your business operates."
+        title="Why Partner with UPLIFT?"
+        subtitle="We provide more than just services; we deliver strategic solutions designed to optimize your business processes and accelerate your success."
         centered
         className="bg-deep-purple/5"
       >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+          <div
             className="order-2 md:order-1"
           >
             <ul className="space-y-6">
@@ -225,18 +214,15 @@ const ServicesPage: React.FC = () => {
                 </li>
               ))}
             </ul>
-          </motion.div>
+          </div>
           
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+          <div
             className="order-1 md:order-2"
           >
             <div className="relative">
               <div className="aspect-square rounded-xl overflow-hidden">
                 <img 
+                  loading="lazy"
                   src="https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
                   alt="UPLIFT team in action" 
                   className="w-full h-full object-cover"
@@ -247,29 +233,25 @@ const ServicesPage: React.FC = () => {
                 <p className="text-white/80">All our services are HIPAA, GDPR, and PIPEDA compliant, ensuring your data remains secure and protected.</p>
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </Section>
       
       {/* CTA Section */}
       <Section>
-        <motion.div 
+        <div 
           className="bg-gradient-to-r from-deep-purple/30 to-rich-black border border-neutral-800 rounded-2xl p-8 md:p-12 text-center max-w-4xl mx-auto"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
         >
           <h2 className="text-3xl font-poppins font-semibold mb-4">
-            Ready to Transform Your Operations?
+            Ready to <span className="gradient-text">Optimize Your Business</span>?
           </h2>
           <p className="text-lg text-white/80 mb-8 max-w-2xl mx-auto">
-            Schedule a consultation to discuss your specific needs and discover how our services can help your business thrive.
+            Connect with our experts for a personalized consultation. Discover how our proven strategies can enhance efficiency, reduce costs, and drive significant growth for your enterprise.
           </p>
           <Button to="/contact" size="lg">
             Book a Meeting
           </Button>
-        </motion.div>
+        </div>
       </Section>
     </>
   );

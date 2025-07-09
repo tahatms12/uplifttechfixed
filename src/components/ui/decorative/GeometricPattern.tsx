@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 
 interface GeometricPatternProps {
   className?: string;
@@ -11,11 +10,8 @@ const GeometricPattern: React.FC<GeometricPatternProps> = ({
   pattern = 'hexagons'
 }) => {
   return (
-    <motion.div
+    <div
       className={`absolute pointer-events-none ${className}`}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}
     >
       <svg
         width="64"
@@ -41,7 +37,7 @@ const GeometricPattern: React.FC<GeometricPatternProps> = ({
           />
         )}
       </svg>
-    </motion.div>
+    </div>
   );
 };
 

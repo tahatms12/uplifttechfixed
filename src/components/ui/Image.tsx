@@ -67,7 +67,7 @@ const Image: React.FC<ImageProps> = memo(({
       .join(', ');
   };
 
-  const baseClasses = 'lazy-image transition-opacity duration-300';
+  const baseClasses = 'lazy-image';
   const loadedClass = isLoaded ? 'loaded opacity-100' : 'opacity-0';
 
   return (
@@ -79,7 +79,7 @@ const Image: React.FC<ImageProps> = memo(({
         <img
           src={placeholder}
           alt=""
-          className="absolute inset-0 w-full h-full object-cover blur-load"
+          className="absolute inset-0 w-full h-full object-cover"
           aria-hidden="true"
           width={width}
           height={height}

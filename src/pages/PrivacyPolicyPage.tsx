@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { motion } from 'framer-motion';
 import Section from '../components/ui/Section';
 import MetaTags from '../components/seo/MetaTags';
 
@@ -17,13 +16,10 @@ const PrivacyPolicyPage: React.FC = () => {
       
       {/* Hero Section */}
       <div className="pt-32 pb-20 gradient-bg relative overflow-hidden">
-        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-electric-violet/20 rounded-full filter blur-[100px] animate-glow"></div>
+        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-electric-violet/20 rounded-full filter blur-[100px]"></div>
         
         <div className="container-custom relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+          <div
             className="max-w-3xl"
           >
             <h1 className="font-poppins font-semibold mb-6">
@@ -32,7 +28,7 @@ const PrivacyPolicyPage: React.FC = () => {
             <p className="text-xl text-white/80">
               Our commitment to protecting your privacy and ensuring compliance with global data protection regulations.
             </p>
-          </motion.div>
+          </div>
         </div>
       </div>
       

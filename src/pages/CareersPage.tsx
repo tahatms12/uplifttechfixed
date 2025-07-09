@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
 import { Briefcase, MapPin, Clock, ChevronsUpDown, X, Check, ArrowRight } from 'lucide-react';
 import Section from '../components/ui/Section';
 import Card from '../components/ui/Card';
@@ -151,29 +150,26 @@ const CareersPage: React.FC = () => {
     <>
       {/* Hero Section */}
       <div className="pt-32 pb-20 gradient-bg relative overflow-hidden">
-        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-electric-violet/20 rounded-full filter blur-[100px] animate-glow"></div>
+        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-electric-violet/20 rounded-full filter blur-[100px]"></div>
         
         <div className="container-custom relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+          <div
             className="max-w-3xl"
           >
             <h1 className="font-poppins font-semibold mb-6">
-              Join Our <span className="gradient-text">Team</span>
+              Accelerate Your <span className="gradient-text">Career Growth</span>
             </h1>
             <p className="text-xl text-white/80">
-              Build your career with UPLIFT Technologies. We're looking for talented individuals to help drive our mission of providing exceptional outsourcing services.
+              Join UPLIFT Technologies and contribute to our mission of delivering exceptional outsourcing services. Explore diverse job opportunities within our dynamic global team.
             </p>
-          </motion.div>
+          </div>
         </div>
       </div>
       
       {/* Why Join Us */}
       <Section
-        title="Why Join UPLIFT"
-        subtitle="Discover the benefits of building your career with our global team."
+        title="Why UPLIFT: Your Career Advantage"
+        subtitle="Explore the benefits of a career with our remote-first, globally impactful team."
         centered
       >
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -194,26 +190,22 @@ const CareersPage: React.FC = () => {
               icon: "🚀"
             }
           ].map((benefit, index) => (
-            <motion.div
+            <div
               key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
               className="text-center"
             >
               <div className="text-4xl mb-4">{benefit.icon}</div>
               <h3 className="text-xl font-medium mb-3">{benefit.title}</h3>
               <p className="text-white/70">{benefit.description}</p>
-            </motion.div>
+            </div>
           ))}
         </div>
       </Section>
       
       {/* Open Positions */}
       <Section
-        title="Open Positions"
-        subtitle="Find your next opportunity with UPLIFT Technologies."
+        title="Current Job Openings"
+        subtitle="Discover your next role at UPLIFT Technologies. We're actively expanding our talent pool."
         centered
         className="bg-deep-purple/5"
       >
@@ -223,7 +215,7 @@ const CareersPage: React.FC = () => {
             <button
               key={department}
               onClick={() => setActiveFilter(department)}
-              className={`px-4 py-2 rounded-full transition-all ${
+              className={`px-4 py-2 rounded-full ${
                 activeFilter === department
                   ? 'bg-electric-violet text-white'
                   : 'bg-neutral-800/50 text-white/70 hover:bg-neutral-700'
@@ -238,12 +230,8 @@ const CareersPage: React.FC = () => {
         <div className="space-y-4">
           {filteredJobs.length > 0 ? (
             filteredJobs.map((job) => (
-              <motion.div
+              <div
                 key={job.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
               >
                 <Card className="overflow-hidden">
                   <button 
@@ -277,11 +265,7 @@ const CareersPage: React.FC = () => {
                   </button>
                   
                   {activeJob === job.id && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: 'auto', opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3 }}
+                    <div
                       className="mt-6 pt-6 border-t border-neutral-800"
                     >
                       <p className="mb-6">{job.description}</p>
@@ -289,8 +273,8 @@ const CareersPage: React.FC = () => {
                       <div className="mb-6">
                         <h4 className="text-lg font-medium mb-3">Responsibilities:</h4>
                         <ul className="space-y-2">
-                          {job.responsibilities.map((item, index) => (
-                            <li key={index} className="flex items-start">
+                          {job.responsibilities.map((item) => (
+                            <li className="flex items-start">
                               <Check size={18} className="text-electric-violet mt-1 mr-2 flex-shrink-0" />
                               <span className="text-white/80">{item}</span>
                             </li>
@@ -301,8 +285,8 @@ const CareersPage: React.FC = () => {
                       <div className="mb-8">
                         <h4 className="text-lg font-medium mb-3">Requirements:</h4>
                         <ul className="space-y-2">
-                          {job.requirements.map((item, index) => (
-                            <li key={index} className="flex items-start">
+                          {job.requirements.map((item) => (
+                            <li className="flex items-start">
                               <Check size={18} className="text-electric-violet mt-1 mr-2 flex-shrink-0" />
                               <span className="text-white/80">{item}</span>
                             </li>
@@ -312,12 +296,12 @@ const CareersPage: React.FC = () => {
                       
                       <Button to="/apply" className="group">
                         Apply Now
-                        <ArrowRight size={18} className="ml-2 group-hover:translate-x-1 transition-transform" />
+                        <ArrowRight size={18} className="ml-2 group-hover:translate-x-1" />
                       </Button>
-                    </motion.div>
+                    </div>
                   )}
                 </Card>
-              </motion.div>
+              </div>
             ))
           ) : (
             <p className="text-center text-white/70">No positions available in this department currently. Check back later!</p>
@@ -327,8 +311,8 @@ const CareersPage: React.FC = () => {
       
       {/* Application Process */}
       <Section
-        title="Our Application Process"
-        subtitle="What to expect when you apply for a position at UPLIFT Technologies."
+        title="Streamlined Application Process"
+        subtitle="Navigate our efficient application process designed for clarity and speed."
       >
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
           {[
@@ -349,12 +333,8 @@ const CareersPage: React.FC = () => {
               description: "Meet with the team leader and discuss specifics of the role, culture fit, and next steps."
             }
           ].map((phase, index) => (
-            <motion.div
+            <div
               key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
               className="relative"
             >
               <Card>
@@ -368,30 +348,26 @@ const CareersPage: React.FC = () => {
               {index < 3 && (
                 <div className="hidden md:block absolute top-1/2 -right-3 w-6 h-0.5 bg-electric-violet/50"></div>
               )}
-            </motion.div>
+            </div>
           ))}
         </div>
       </Section>
       
       {/* CTA Section */}
       <Section className="bg-deep-purple/5">
-        <motion.div 
+        <div 
           className="bg-gradient-to-r from-deep-purple/30 to-rich-black border border-neutral-800 rounded-2xl p-8 md:p-12 text-center max-w-4xl mx-auto"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
         >
           <h2 className="text-3xl font-poppins font-semibold mb-4">
-            Don't See the Right Fit?
+            Can't Find Your Ideal Role?
           </h2>
           <p className="text-lg text-white/80 mb-8 max-w-2xl mx-auto">
-            We're always looking for talented individuals to join our team. Submit your resume for future opportunities.
+            Submit your resume for future consideration. We're continuously seeking skilled professionals to join our expanding team.
           </p>
           <Button to="/apply" size="lg">
             Submit Your Resume
           </Button>
-        </motion.div>
+        </div>
       </Section>
     </>
   );

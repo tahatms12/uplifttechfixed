@@ -21,7 +21,6 @@ export const useNeonEffect = ({
   colors
 }: UseNeonEffectProps) => {
   const rendererRef = useRef<THREE.WebGLRenderer>();
-  const frameRef = useRef<number>();
 
   useEffect(() => {
     if (!enabled || !imageRef.current || !canvasRef.current) return;
@@ -37,7 +36,6 @@ export const useNeonEffect = ({
 
     // Set up scene and camera
     const scene = new THREE.Scene();
-    const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
 
     // Create texture from image
     const texture = new THREE.Texture(imageRef.current);
@@ -79,24 +77,13 @@ export const useNeonEffect = ({
     window.addEventListener('resize', handleResize);
     handleResize();
 
-    // Animation loop
-    const animate = (time: number) => {
-      material.uniforms.uTime.value = time * 0.001;
-      renderer.render(scene, camera);
-      frameRef.current = requestAnimationFrame(animate);
-    };
-    frameRef.current = requestAnimationFrame(animate);
-
     // Cleanup
     return () => {
       window.removeEventListener('resize', handleResize);
-      if (frameRef.current) {
-        cancelAnimationFrame(frameRef.current);
-      }
       geometry.dispose();
       material.dispose();
       texture.dispose();
       renderer.dispose();
     };
-  }, [enabled, colors]);
+  }, [enabled, colors, imageRef, canvasRef]);
 };

@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import Section from '../ui/Section';
 import Card from '../ui/Card';
@@ -26,9 +25,10 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = ({
     <Card className="overflow-hidden p-0 flex flex-col h-full" delay={delay}>
       <div className="relative h-40 sm:h-48 overflow-hidden">
         <img
+          loading="lazy"
           src={imageUrl}
           alt={title}
-          className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+          className="w-full h-full object-cover"
         />
         <div className="absolute top-2 sm:top-4 left-2 sm:left-4 bg-electric-violet/90 text-white text-xs font-medium px-2 py-1 sm:px-3 sm:py-1 rounded-full">
           {category}
@@ -112,18 +112,14 @@ const CaseStudies: React.FC = () => {
         ))}
       </div>
       
-      <motion.div 
+      <div 
         className="text-center mt-12"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
       >
         <Button to="/case-studies" size="lg" className="group w-full sm:w-auto">
           View All Case Studies
-          <ArrowRight size={18} className="ml-2 group-hover:translate-x-1 transition-transform" />
+          <ArrowRight size={18} className="ml-2 group-hover:translate-x-1" />
         </Button>
-      </motion.div>
+      </div>
     </Section>
   );
 };

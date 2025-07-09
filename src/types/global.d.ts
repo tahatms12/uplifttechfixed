@@ -1,15 +1,5 @@
 // Global type definitions
 
-// Cal.com global object
-interface Window {
-  Cal?: {
-    (action: string, ...args: any[]): void;
-    q?: any[];
-    ns?: Record<string, any>;
-    loaded?: boolean;
-  };
-}
-
 // Declare module for importing CSS
 declare module '*.css' {
   const content: { [className: string]: string };

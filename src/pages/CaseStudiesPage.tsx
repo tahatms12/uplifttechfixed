@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
 import { ArrowRight, CheckCircle } from 'lucide-react';
 import Section from '../components/ui/Section';
 import Card from '../components/ui/Card';
@@ -220,8 +219,8 @@ const CaseStudiesPage: React.FC = () => {
   return (
     <>
       <MetaTags 
-        title="Case Studies - Client Success Stories"
-        description="Discover how UPLIFT Technologies transforms businesses through expert outsourcing solutions. Real results, real impact across sales, marketing, collections & more."
+        title="UPLIFT Technologies: Client Success Stories & Case Studies"
+        description="Explore UPLIFT Technologies' proven outsourcing solutions. Our case studies demonstrate measurable impact and significant business growth across diverse industries."
         image="https://24vzlu2kzs.ufs.sh/f/4JlBnp1v6U48gUJycDW4KQobNdljuvhf3x8ZICL0FDiO2aUY"
         type="article"
       />
@@ -229,22 +228,19 @@ const CaseStudiesPage: React.FC = () => {
       
       {/* Hero Section */}
       <div className="pt-32 pb-20 gradient-bg relative overflow-hidden">
-        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-electric-violet/20 rounded-full filter blur-[100px] animate-glow"></div>
+        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-electric-violet/20 rounded-full filter blur-[100px]"></div>
         
         <div className="container-custom relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+          <div
             className="max-w-3xl"
           >
             <h1 className="font-poppins font-semibold mb-6">
-              Our <span className="gradient-text">Case Studies</span>
+              Client Success: Our <span className="gradient-text">Impactful Case Studies</span>
             </h1>
             <p className="text-xl text-white/80">
-              Real results for real businesses. Explore how our services have transformed operations and driven growth across industries.
+              Discover how UPLIFT Technologies delivers tangible results. Our detailed case studies showcase operational transformations and sustained business growth across various sectors.
             </p>
-          </motion.div>
+          </div>
         </div>
       </div>
       
@@ -256,7 +252,7 @@ const CaseStudiesPage: React.FC = () => {
               <button
                 key={category}
                 onClick={() => setActiveFilter(category)}
-                className={`px-3 py-2 text-sm whitespace-nowrap rounded-full transition-all ${
+                className={`px-3 py-2 text-sm whitespace-nowrap rounded-full ${
                   activeFilter === category
                     ? 'bg-electric-violet text-white'
                     : 'bg-neutral-800/50 text-white/70 hover:bg-neutral-700'
@@ -272,20 +268,16 @@ const CaseStudiesPage: React.FC = () => {
       {/* Case Studies Grid */}
       <Section className="px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-10">
-          {filteredCaseStudies.map((study, index) => (
-            <motion.div
+          {filteredCaseStudies.map((study) => (
+            <div
               key={study.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
             >
               <Card className="flex flex-col h-full">
                 <div className="relative h-64 w-full rounded-lg overflow-hidden mb-6">
                   <img 
                     src={study.imageSrc}
                     alt={study.title}
-                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                    className="w-full h-full object-cover"
                   />
                   <div className="absolute top-4 left-4 bg-electric-violet/90 text-white text-xs font-medium px-3 py-1 rounded-full">
                     {study.category}
@@ -304,8 +296,8 @@ const CaseStudiesPage: React.FC = () => {
                   
                   <h3 className="text-lg font-medium mb-2">Results:</h3>
                   <ul className="space-y-2">
-                    {study.results.map((result, index) => (
-                      <li key={index} className="flex items-start">
+                    {study.results.map((result) => (
+                      <li className="flex items-start">
                         <CheckCircle size={18} className="text-electric-violet mt-1 mr-2 flex-shrink-0" />
                         <span className="text-white/80">{result}</span>
                       </li>
@@ -329,31 +321,27 @@ const CaseStudiesPage: React.FC = () => {
                   </div>
                 )}
               </Card>
-            </motion.div>
+            </div>
           ))}
         </div>
       </Section>
       
       {/* CTA Section */}
       <Section className="bg-deep-purple/5">
-        <motion.div 
+        <div 
           className="bg-gradient-to-r from-deep-purple/30 to-rich-black border border-neutral-800 rounded-2xl p-8 md:p-12 text-center max-w-4xl mx-auto"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
         >
           <h2 className="text-3xl font-poppins font-semibold mb-4">
-            Ready to Achieve Similar Results?
+            Ready for <span className="gradient-text">Proven Business Growth</span>?
           </h2>
           <p className="text-lg text-white/80 mb-8 max-w-2xl mx-auto">
-            Schedule a consultation to discuss your specific needs and discover how our services can transform your business operations.
+            Connect with our experts to discuss your unique challenges. Learn how tailored outsourcing solutions can drive efficiency and accelerate your business objectives.
           </p>
           <Button to="/contact" size="lg" className="group">
-            Book a Meeting
-            <ArrowRight size={18} className="ml-2 group-hover:translate-x-1 transition-transform" />
+            Schedule Consultation
+            <ArrowRight size={18} className="ml-2 group-hover:translate-x-1" />
           </Button>
-        </motion.div>
+        </div>
       </Section>
     </>
   );

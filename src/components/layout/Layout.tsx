@@ -3,7 +3,6 @@ import { Outlet } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import Navbar from './Navbar';
 import Footer from './Footer';
-import { motion, AnimatePresence } from 'framer-motion';
 
 const Layout: React.FC = () => {
   return (
@@ -15,19 +14,13 @@ const Layout: React.FC = () => {
         Skip to main content
       </a>
       <Navbar />
-      <AnimatePresence mode="wait">
-        <motion.main 
+      <main 
           id="main-content"
           className="flex-grow"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -20 }}
-          transition={{ duration: 0.3 }}
           tabIndex={-1}
         >
           <Outlet />
-        </motion.main>
-      </AnimatePresence>
+        </main>
       <Footer />
       
       {/* Mobile optimization meta tag */}

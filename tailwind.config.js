@@ -52,43 +52,10 @@ export default {
         'neon': '0 0 20px rgba(155, 29, 255, 0.3)',
         'focus': '0 0 0 3px rgba(155, 29, 255, 0.5)',
       },
-      typography: {
-        DEFAULT: {
-          css: {
-            color: 'rgba(255, 255, 255, 0.8)',
-            a: {
-              color: '#9B1DFF',
-              '&:hover': {
-                color: '#C44FFF',
-              },
-            },
-            h1: {
-              color: '#FFFFFF',
-            },
-            h2: {
-              color: '#9B1DFF',
-            },
-            h3: {
-              color: '#FFFFFF',
-            },
-            strong: {
-              color: '#FFFFFF',
-            },
-            code: {
-              color: '#FFFFFF',
-            },
-            blockquote: {
-              color: 'rgba(255, 255, 255, 0.8)',
-              borderLeftColor: 'rgba(155, 29, 255, 0.5)',
-            },
-          },
-        },
-      },
+      
     },
   },
-  plugins: [
-    require('@tailwindcss/typography')
-  ],
+  plugins: [],
   future: {
     hoverOnlyWhenSupported: true,
     respectDefaultRingColorOpacity: true,
