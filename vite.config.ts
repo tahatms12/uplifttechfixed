@@ -1,4 +1,3 @@
-
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { VitePWA } from 'vite-plugin-pwa';
@@ -15,28 +14,75 @@ export default defineConfig({
       }
     }),
     VitePWA({
-      registerType: 'autoUpdate',
-      includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'masked-icon.svg'],
-      manifest: {
-        name: 'UPLIFT Technologies',
-        short_name: 'UPLIFT',
-        description: 'People-Powered Outsourcing Partner',
-        theme_color: '#0D0D0F',
-        background_color: '#0D0D0F',
-        display: 'standalone',
-        icons: [
+      strategies: 'generateSW',
+      injectRegister: false,
+      workbox: {
+        navigationPreload: true,
+        cleanupOutdatedCaches: true,
+        clientsClaim: true,
+        skipWaiting: true,
+        manifestTransforms: [
+          async (manifest) => {
+            const warnings = [];
+            const manifestEntries = manifest.map((entry) => {
+              let url = entry.url;
+              // Remove hash from font URLs
+              if (url.startsWith('/assets/poppins') && url.includes('.woff2')) {
+                url = url.replace(/-\w+\.woff2$/, '.woff2');
+              }
+              return { ...entry, url };
+            });
+            return { manifest: manifestEntries, warnings };
+          },
+        ],
+        runtimeCaching: [
           {
-            src: '/android-chrome-192x192.png',
-            sizes: '192x192',
-            type: 'image/png'
+            urlPattern: /^https:\/\/fonts\.googleapis\.com\/.*/i,
+            handler: 'CacheFirst',
+            options: {
+              cacheName: 'google-fonts-cache',
+              expiration: {
+                maxEntries: 10,
+                maxAgeSeconds: 60 * 60 * 24 * 365, // 365 days
+              },
+              cacheableResponse: {
+                statuses: [0, 200],
+              },
+            },
           },
           {
-            src: '/android-chrome-512x512.png',
-            sizes: '512x512',
-            type: 'image/png'
-          }
-        ]
-      }
+            urlPattern: /^https:\/\/fonts\.gstatic\.com\/.*/i,
+            handler: 'CacheFirst',
+            options: {
+              cacheName: 'gstatic-fonts-cache',
+              expiration: {
+                maxEntries: 10,
+                maxAgeSeconds: 60 * 60 * 24 * 365, // 365 days
+              },
+              cacheableResponse: {
+                statuses: [0, 200],
+              },
+            },
+          },
+          {
+            urlPattern: /^https:\/\/cplyjoeqd4\.ufs\.sh\/.*/i,
+            handler: 'CacheFirst',
+            options: {
+              cacheName: 'ufs-images',
+              expiration: {
+                maxEntries: 50,
+                maxAgeSeconds: 60 * 60 * 24 * 30, // 30 days
+              },
+              cacheableResponse: {
+                statuses: [0, 200],
+              },
+            },
+          },
+        ],
+      },
+      devOptions: {
+        enabled: true,
+      },
     }),
     
     process.env.ANALYZE && visualizer({
