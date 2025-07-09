@@ -41,6 +41,7 @@ const ServiceCard: React.FC<ServiceProps> = ({
           alt={title}
           className="w-full h-full object-cover"
           decoding="async"
+        />
       </div>
       
       <ul className="space-y-2 mb-6">

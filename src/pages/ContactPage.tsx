@@ -175,6 +175,7 @@ const ContactPage: React.FC = () => {
             loading="lazy"
             decoding="async"
             fetchpriority="high"
+          />
         </div>
       </Section>
     </>
