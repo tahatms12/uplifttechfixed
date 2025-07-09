@@ -26,6 +26,7 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = ({
       <div className="relative h-40 sm:h-48 overflow-hidden">
         <img
           loading="lazy"
+          decoding="async"
           src={imageUrl}
           alt={title}
           className="w-full h-full object-cover"

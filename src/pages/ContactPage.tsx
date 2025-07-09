@@ -172,7 +172,8 @@ const ContactPage: React.FC = () => {
             src="https://cplyjoeqd4.ufs.sh/f/gAmqiT9pUNhrWX2rELwIaUN5ZeFJCVGqXkKD9szcLwxHtEbg" 
             alt="Global team collaboration" 
             className="w-full h-full object-cover"
-          />
+            loading="lazy"
+            decoding="async"
         </div>
       </Section>
     </>

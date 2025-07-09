@@ -104,6 +104,7 @@ const AboutPage: React.FC = () => {
                 alt="UPLIFT team collaboration" 
                 className="w-full h-full object-cover"
                 loading="lazy"
+                decoding="async"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-rich-black/70 to-transparent"></div>
             </div>
@@ -148,6 +149,7 @@ const AboutPage: React.FC = () => {
                   alt={member.name} 
                   className="w-full h-full object-cover"
                   loading="lazy"
+                  decoding="async"
                 />
               </div>
               <h3 className="text-xl sm:text-2xl font-medium mb-1 sm:mb-2">{member.name}</h3>

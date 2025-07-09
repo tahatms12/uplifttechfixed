@@ -36,10 +36,11 @@ const ServiceCard: React.FC<ServiceProps> = ({
       
       <div className="relative h-48 w-full rounded-lg overflow-hidden my-4">
         <img 
+          loading="lazy"
           src={imageSrc}
           alt={title}
           className="w-full h-full object-cover"
-        />
+          decoding="async"
       </div>
       
       <ul className="space-y-2 mb-6">
@@ -226,6 +227,7 @@ const ServicesPage: React.FC = () => {
                   src="https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
                   alt="UPLIFT team in action" 
                   className="w-full h-full object-cover"
+                  decoding="async"
                 />
               </div>
               <div className="absolute -bottom-6 -right-6 bg-rich-black p-6 rounded-xl border border-neutral-800 max-w-xs">

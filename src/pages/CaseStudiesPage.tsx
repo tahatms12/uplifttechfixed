@@ -278,7 +278,8 @@ const CaseStudiesPage: React.FC = () => {
                     src={study.imageSrc}
                     alt={study.title}
                     className="w-full h-full object-cover"
-                  />
+                    loading="lazy"
+                    decoding="async"
                   <div className="absolute top-4 left-4 bg-electric-violet/90 text-white text-xs font-medium px-3 py-1 rounded-full">
                     {study.category}
                   </div>

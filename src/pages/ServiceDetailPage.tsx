@@ -374,6 +374,7 @@ export const ServiceDetailPage: React.FC = () => {
                   src={serviceData.imageSrc}
                   alt={serviceData.title}
                   className="w-full object-cover aspect-video"
+                  decoding="async"
                 />
               </div>
             </div>
