@@ -228,6 +228,7 @@ const ServicesPage: React.FC = () => {
                   alt="UPLIFT team in action" 
                   className="w-full h-full object-cover"
                   decoding="async"
+                  fetchpriority="high"
                 />
               </div>
               <div className="absolute -bottom-6 -right-6 bg-rich-black p-6 rounded-xl border border-neutral-800 max-w-xs">

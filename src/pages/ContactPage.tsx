@@ -174,6 +174,7 @@ const ContactPage: React.FC = () => {
             className="w-full h-full object-cover"
             loading="lazy"
             decoding="async"
+            fetchpriority="high"
         </div>
       </Section>
     </>
