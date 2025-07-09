@@ -169,7 +169,7 @@ const ContactPage: React.FC = () => {
             </div>
           </div>
           <img 
-            src="https://cplyjoeqd4.ufs.sh/f/gAmqiT9pUNhrWX2rELwIaUN5ZeFJCVGqXkKD9szcLwxHtEbg" 
+            src="/images/gAmqiT9pUNhrWX2rELwIaUN5ZeFJCVGqXkKD9szcLwxHtEbg" 
             alt="Global team collaboration" 
             className="w-full h-full object-cover"
             loading="lazy"

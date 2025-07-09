@@ -71,7 +71,7 @@ export const ServiceDetailPage: React.FC = () => {
           description: 'Continuous performance monitoring and process refinement to maximize results and ROI.'
         }
       ],
-      imageSrc: 'https://cplyjoeqd4.ufs.sh/f/gAmqiT9pUNhrOwsfWsPtf5tLxrJBKGIUXpzSWP3AO9Qwhg1N'
+      imageSrc: '/images/gAmqiT9pUNhrOwsfWsPtf5tLxrJBKGIUXpzSWP3AO9Qwhg1N'
     },
     'logistics': {
       title: 'Logistics',
@@ -122,7 +122,7 @@ export const ServiceDetailPage: React.FC = () => {
           description: 'Ongoing analysis and optimization of processes to achieve greater efficiency and cost savings.'
         }
       ],
-      imageSrc: 'https://cplyjoeqd4.ufs.sh/f/gAmqiT9pUNhr7Adl4MJoqhwKnVTQZaEAGCsP4eUcDWl2dOm1'
+      imageSrc: '/images/gAmqiT9pUNhr7Adl4MJoqhwKnVTQZaEAGCsP4eUcDWl2dOm1'
     },
     'collections': {
       title: 'Collections',
@@ -173,7 +173,7 @@ export const ServiceDetailPage: React.FC = () => {
           description: 'Regular performance reviews and strategy adjustments to maximize recovery rates.'
         }
       ],
-      imageSrc: 'https://cplyjoeqd4.ufs.sh/f/gAmqiT9pUNhrkd1LlTf7QUG3gos5DHvRIOeTxSVCiYqEJwZA'
+      imageSrc: '/images/gAmqiT9pUNhrkd1LlTf7QUG3gos5DHvRIOeTxSVCiYqEJwZA'
     },
     'marketing': {
       title: 'Marketing',
@@ -224,7 +224,7 @@ export const ServiceDetailPage: React.FC = () => {
           description: 'Continuous performance monitoring and campaign refinement to maximize results.'
         }
       ],
-      imageSrc: 'https://cplyjoeqd4.ufs.sh/f/gAmqiT9pUNhriqLUaVAGx5GHot7PpSj1Nqiscbey38YkwXh2'
+      imageSrc: '/images/gAmqiT9pUNhriqLUaVAGx5GHot7PpSj1Nqiscbey38YkwXh2'
     },
     'front-desk': {
       title: 'Front Desk',
@@ -275,7 +275,7 @@ export const ServiceDetailPage: React.FC = () => {
           description: 'Regular reviews and adjustments to ensure service delivery meets your evolving needs.'
         }
       ],
-      imageSrc: 'https://cplyjoeqd4.ufs.sh/f/gAmqiT9pUNhrffylYS3u4vE1XnCFZWHLb5YdoJeqV2ijy6fI'
+      imageSrc: '/images/gAmqiT9pUNhrffylYS3u4vE1XnCFZWHLb5YdoJeqV2ijy6fI'
     }
   };
   

@@ -81,7 +81,7 @@ const ServicesPage: React.FC = () => {
         "CRM management and reporting",
         "Sales process optimization"
       ],
-      imageSrc: "https://cplyjoeqd4.ufs.sh/f/gAmqiT9pUNhrOwsfWsPtf5tLxrJBKGIUXpzSWP3AO9Qwhg1N",
+      imageSrc: "/images/gAmqiT9pUNhrOwsfWsPtf5tLxrJBKGIUXpzSWP3AO9Qwhg1N",
   path: "/contact"
     },
     {
@@ -94,7 +94,7 @@ const ServicesPage: React.FC = () => {
         "Shipping and distribution coordination",
         "Supply chain optimization"
       ],
-      imageSrc: "https://cplyjoeqd4.ufs.sh/f/gAmqiT9pUNhr7Adl4MJoqhwKnVTQZaEAGCsP4eUcDWl2dOm1",
+      imageSrc: "/images/gAmqiT9pUNhr7Adl4MJoqhwKnVTQZaEAGCsP4eUcDWl2dOm1",
       path: "/services/logistics"
     },
     {
@@ -107,7 +107,7 @@ const ServicesPage: React.FC = () => {
         "HIPAA/GDPR compliant processes",
         "Detailed reporting and analytics"
       ],
-      imageSrc: "https://cplyjoeqd4.ufs.sh/f/gAmqiT9pUNhrkd1LlTf7QUG3gos5DHvRIOeTxSVCiYqEJwZA",
+      imageSrc: "/images/gAmqiT9pUNhrkd1LlTf7QUG3gos5DHvRIOeTxSVCiYqEJwZA",
       path: "/services/collections"
     },
     {
@@ -120,7 +120,7 @@ const ServicesPage: React.FC = () => {
         "Social media management",
         "Performance tracking and optimization"
       ],
-      imageSrc: "https://cplyjoeqd4.ufs.sh/f/gAmqiT9pUNhriqLUaVAGx5GHot7PpSj1Nqiscbey38YkwXh2",
+      imageSrc: "/images/gAmqiT9pUNhriqLUaVAGx5GHot7PpSj1Nqiscbey38YkwXh2",
       path: "/services/marketing"
     },
     {
@@ -133,7 +133,7 @@ const ServicesPage: React.FC = () => {
         "Call routing and message taking",
         "Virtual office administration"
       ],
-      imageSrc: "https://cplyjoeqd4.ufs.sh/f/gAmqiT9pUNhrffylYS3u4vE1XnCFZWHLb5YdoJeqV2ijy6fI",
+      imageSrc: "/images/gAmqiT9pUNhrffylYS3u4vE1XnCFZWHLb5YdoJeqV2ijy6fI",
       path: "/services/front-desk"
     }
   ];
